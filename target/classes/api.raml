@@ -1,0 +1,125 @@
+#%RAML 0.8
+title: Sample API
+
+
+/getAllFlights:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example:  |
+              { 
+                "success":true, 
+                "message": "Succesful" 
+               }
+              
+      400:
+        body:
+          application/json:
+            example:  |
+              { 
+                "success": false, 
+                "message": "Bad request - The server cannot process the request due to a client error" 
+              }
+      404:
+        body:
+          application/json:
+             example: |
+              {
+                "success": false,
+                "message": "Not found"
+              }
+      500:
+        body:
+          application/json:
+             example: |
+              {
+                "success": false,
+                "message": "Server error"
+              }
+
+/getFlightsSOAP:
+  get:
+    queryParameters:
+      destination:
+        type: string
+        maxLength: 3
+        required: true
+    responses:
+      200:
+        body:
+          application/json:
+            example:  |
+              { 
+                "success":true, 
+                "message": "Succesful" 
+               }
+              
+      400:
+        body:
+          application/json:
+            example:  |
+              { 
+                "success": false, 
+                "message": "Bad request - The server cannot process the request due to a client error" 
+              }
+      404:
+        body:
+          application/json:
+             example: |
+              {
+                "success": false,
+                "message": "Not found"
+              }
+      500:
+        body:
+          application/json:
+             example: |
+              {
+                "success": false,
+                "message": "Server error"
+              }
+              
+/getFlightsREST:
+  get:
+    queryParameters:
+      destination:
+        type: string
+        maxLength: 3
+        required: false
+    responses:
+      200:
+        body:
+          application/json:
+            example:  |
+              { 
+                "success":true, 
+                "message": "Succesful" 
+               }
+              
+      400:
+        body:
+          application/json:
+            example:  |
+              { 
+                "success": false, 
+                "message": "Bad request - The server cannot process the request due to a client error" 
+              }
+      404:
+        body:
+          application/json:
+             example: |
+              {
+                "success": false,
+                "message": "Not found"
+              }
+      500:
+        body:
+          application/json:
+             example: |
+              {
+                "success": false,
+                "message": "Server error"
+              }
+              
