@@ -11,19 +11,7 @@ http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee
     <flow name="getFlightsFlowREST">
         <http:request config-ref="HTTP_rest" path="${rest.base}" method="GET" doc:name="HTTP" metadata:id="9fbfba7e-7db6-4c7e-a04d-7d37c85e4924"/>
         <dw:transform-message doc:name="Transform Message">
-            <dw:set-payload><![CDATA[%dw 1.0
-%output application/json
----
-payload.flights map {
-	airline: $.airlineName,
-	code: $.code,
-	date: $.departureDate,
-	dest: $.destination,
-	seats: $.emptySeats,
-	origin: $.origin,
-	plane: $.planeType,
-	price: $.price
-}]]></dw:set-payload>
+            <dw:set-payload resource="output/unitedTransformer.dwl"></dw:set-payload>
         </dw:transform-message>
         <logger level="INFO" doc:name="Logger"/>
     </flow>
