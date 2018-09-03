@@ -14,9 +14,9 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
 http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
     <apikit:config name="apiConfig" raml="api.raml" consoleEnabled="false" doc:name="Router" keepRamlBaseUri="false">
-        <apikit:flow-mapping resource="/getAllFlights" action="get" flow-ref="getAllFlightsFlow"/>
-        <apikit:flow-mapping resource="/getFlightsSOAP" action="get" flow-ref="getFlightsFlowSOAP"/>
-        <apikit:flow-mapping resource="/getFlightsREST" action="get" flow-ref="getFlightsFlowREST"/>
+        <apikit:flow-mapping resource="/delta" action="get" flow-ref="get:/delta"/>
+        <apikit:flow-mapping resource="/delta/code-destination" action="get" flow-ref="get:/delta/code-destination"/>
+        <apikit:flow-mapping resource="/united/code-destination" action="get" flow-ref="get:/united/code-destination"/>
     </apikit:config>
 
     <context:property-placeholder location="system-${env}.properties" />

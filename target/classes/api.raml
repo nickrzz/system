@@ -2,18 +2,18 @@
 title: Sample API
 
 
-/getAllFlights:
+/delta:
   get:
-    responses:
+     responses:
       200:
-        body:
-          application/json:
-            example:  |
-              { 
+         body:
+            application/json:
+              example:  |
+               { 
                 "success":true, 
                 "message": "Succesful" 
                }
-              
+                
       400:
         body:
           application/json:
@@ -38,24 +38,24 @@ title: Sample API
                 "success": false,
                 "message": "Server error"
               }
-
-/getFlightsSOAP:
-  get:
-    queryParameters:
-      destination:
-        type: string
-        maxLength: 3
-        required: true
-    responses:
+        
+  /code-destination:
+    get:
+     queryParameters:
+        destination:
+          type: string
+          required: false
+          displayName: Destination airport code
+     responses:
       200:
-        body:
-          application/json:
-            example:  |
-              { 
+         body:
+            application/json:
+              example:  |
+               { 
                 "success":true, 
                 "message": "Succesful" 
                }
-              
+                
       400:
         body:
           application/json:
@@ -80,24 +80,19 @@ title: Sample API
                 "success": false,
                 "message": "Server error"
               }
-              
-/getFlightsREST:
+          
+/united:
   get:
-    queryParameters:
-      destination:
-        type: string
-        maxLength: 3
-        required: false
-    responses:
+     responses:
       200:
-        body:
-          application/json:
-            example:  |
-              { 
+         body:
+            application/json:
+              example:  |
+               { 
                 "success":true, 
                 "message": "Succesful" 
                }
-              
+                
       400:
         body:
           application/json:
@@ -122,4 +117,46 @@ title: Sample API
                 "success": false,
                 "message": "Server error"
               }
-              
+        
+  /code-destination:
+    get:
+     queryParameters:
+        destination:
+          type: string
+          required: false
+          displayName: Destination airport code
+     responses:
+      200:
+         body:
+            application/json:
+              example:  |
+               { 
+                "success":true, 
+                "message": "Succesful" 
+               }
+                
+      400:
+        body:
+          application/json:
+            example:  |
+              { 
+                "success": false, 
+                "message": "Bad request - The server cannot process the request due to a client error" 
+              }
+      404:
+        body:
+          application/json:
+             example: |
+              {
+                "success": false,
+                "message": "Not found"
+              }
+      500:
+        body:
+          application/json:
+             example: |
+              {
+                "success": false,
+                "message": "Server error"
+              }
+        
